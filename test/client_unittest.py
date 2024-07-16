@@ -1,3 +1,4 @@
+import time
 import unittest
 import httpx
 from unittest import mock
@@ -41,7 +42,9 @@ class ClientUnittest(unittest.TestCase):
         client = Client()
         mock_get_client.return_value = mock_get_method
         mock_delete_client.return_value = mock_delete_method
-        assert client.removing_data(1) is True
+        while True:
+            assert client.removing_data(1) is True
+            time.sleep(60)
 
 
 
